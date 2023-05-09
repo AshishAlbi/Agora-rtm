@@ -1,0 +1,18 @@
+{
+  "messages": [
+    {
+      "text": "hi",
+      "uid": "Ashish",
+      "dateTime": "2023-05-09T09:16:46.993Z",
+      "channelName": "1234",
+      "id": 1
+    },
+    {
+      "text": "hello",
+      "uid": "Test",
+      "dateTime": "2023-05-09T09:17:11.868Z",
+      "channelName": "1234",
+      "id": 2
+    }
+  ]
+}
