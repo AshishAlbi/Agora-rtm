@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  gap: 10px;
+  width: 100vw;
+  height: 100vh;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sendermessage {
+  margin-left: auto;
+  border-radius: 30px;
+  background-color: rgb(72, 98, 170);
+  color: white;
+  height: 20px;
+  padding: 20px;
+}
+.reciverMessage {
+  margin-right: auto;
+  border-radius: 30px;
+  background-color: rgb(53, 150, 93);
+  color: white;
+  height: 20px;
+  padding: 20px;
+}
+.senderName {
+  margin-right: auto;
+  opacity: 0.5;
+}
+.sendedMessage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 1%;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: white;
+}
+::-webkit-scrollbar-thumb {
+  background: grey;
+}

@@ -1,17 +1,13 @@
-// import { useState } from "react";
 import "./App.css";
-import Greet from "./components/Greet";
-import { Message } from "./components/Message";
-import { ParentComponent } from "./components/ParentComponent";
+import Login from "./components/Login/Login";
+import Routing from "./components/Routing";
+
 
 function App() {
-    // const [count, setCount] = useState(0);
 
     return (
         <>
-            <Greet name="test" heroName="Batman" />
-            <Message />
-            <ParentComponent />
+        <Routing/>
         </>
     );
 }
