@@ -9,7 +9,8 @@ window.Buffer = Buffer;
 const channelName="1234"
 let uid: any;
 let messageHistory: any = [];
-const useClient = createClient("9cc667ea671c444fb10859b008f0b6cd");
+let previousNumber:number|null=null;
+const useClient = createClient("50d27d9f7d9e4193af467588ce26d63d");
 const useChannel = createChannel(channelName);
 const client = useClient();
 const testChannel = useChannel(client);
@@ -44,20 +45,20 @@ function Home(props: homeProps) {
     };
   }, []);
   useEffect(() => {
-    fetch(" http://localhost:3030/messages")
+    fetch(" http://localhost:3000/messages")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
+        // console.log("chat===========",data);
         setMessages(data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, [messageSended]);
-  
   function generateNewNumber() {
-    let previousNumber = 0;
+    
     let newNumber = Math.floor(Math.random() * 100); // generate a random number between 0 and 99
     while (newNumber === previousNumber) { // check if the new number is the same as the previous number
       newNumber = Math.floor(Math.random() * 100); // generate a new random number if it is the same
@@ -94,7 +95,7 @@ function Home(props: homeProps) {
           return [...previous, { msg: { text }, uid, dateTime }];
         });
         messageHistory.push({ text, uid, dateTime });
-        fetch("http://localhost:3030/messages", {
+        fetch("http://localhost:3000/messages", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ text, uid, dateTime , channelName }),
@@ -114,14 +115,14 @@ function Home(props: homeProps) {
     <div className={homecss.body}>
       <Paper
         sx={{
-          height: "80vh",
+          height: "85vh",
           width: "80vw",
           padding: "2%",
           overflowY: "scroll",
         }}
         className={homecss.content}
       >
-        <div>
+        <div className={homecss.messageBody}>
           {messages.map((test: any, i) => (
             <div key={i} className={homecss.sendedMessage}>
               <div

@@ -42,6 +42,12 @@
   gap: 10px;
   padding-right: 1%;
 }
+.messageBody{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-end;
+}
 ::-webkit-scrollbar {
   width: 5px;
 }
