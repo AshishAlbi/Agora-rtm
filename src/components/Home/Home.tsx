@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { messageStore } from "../../types/chatType";
 import { RtmMessage, createChannel, createClient } from "agora-rtm-react";
 import homecss from "./Home.module.css";
 import { OutlinedInput, Paper } from "@mui/material";
 import { Buffer } from "buffer";
 import { useNavigate } from "react-router-dom";
+import { saveMessage } from "../../service/chatService";
 
 window.Buffer = Buffer;
 const channelName="1234"
@@ -14,12 +16,7 @@ const useClient = createClient("50d27d9f7d9e4193af467588ce26d63d");
 const useChannel = createChannel(channelName);
 const client = useClient();
 const testChannel = useChannel(client);
-type messageStore = {
-  msg: { text: string };
-  userName: string;
-  uid: string;
-  dateTime: string;
-};
+
 type homeProps = {
   name: any;
 };
@@ -95,11 +92,15 @@ function Home(props: homeProps) {
           return [...previous, { msg: { text }, uid, dateTime }];
         });
         messageHistory.push({ text, uid, dateTime });
-        fetch("http://localhost:3000/messages", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ text, uid, dateTime , channelName }),
-        })
+        const data={
+          te
+        }
+        // fetch("http://localhost:3000/messages", {
+        //   method: "POST",
+        //   headers: { "content-type": "application/json" },
+        //   body: JSON.stringify({ text, uid, dateTime , channelName }),
+        // })
+        saveMessage()
           .then((res) => {
             console.log("message saved");
             setMessageSended(generateNewNumber());

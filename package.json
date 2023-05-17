@@ -17,6 +17,7 @@
     "agora-chat": "^1.1.0",
     "agora-rtm-react": "^1.1.2",
     "agora-token": "^2.0.2",
+    "axios": "^1.4.0",
     "buffer": "^6.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
