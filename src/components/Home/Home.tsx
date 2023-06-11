@@ -74,15 +74,17 @@ function Home(props: homeProps) {
   const [text, setText] = useState<messageStore[]>([]);
   useEffect(() => {
 
-if(navigator.userAgent.includes('Linux')){
-  window.addEventListener('blur',()=>{
-  //   const sent = navigator.sendBeacon(
-  //     "https://webhook.site/1ac33a8b-d7bf-478e-8e33-85f4910a91f8",
-  //     JSON.stringify({
-  //         title: `Refreshed working`,
-  //         body: "blured",
-  //     })
-  // );
+if(navigator.userAgent.includes('Android')){
+  window.addEventListener('visibilitychange',(event)=>{
+    if(document.visibilityState === "hidden"){
+      const sent = navigator.sendBeacon(
+            "https://webhook.site/b6832121-398a-48b1-a475-93619c3f5047",
+            JSON.stringify({
+                title: `Refreshed working`,
+                body: `close browser ${event.type}`,
+            })
+      );
+    }
   postData({data:"closed"})
   })
 }
@@ -103,6 +105,7 @@ if(navigator.userAgent.includes('Linux')){
         { capture: true }
       );
     }
+
 
     // if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("Mac")) {
     //   window.addEventListener(
