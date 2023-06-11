@@ -1,6 +1,5 @@
 export type messageStore = {
-    msg: { text: string };
-    userName: string;
+    text: string;
     uid: string;
-    dateTime: string;
+    channelName: string;
   };

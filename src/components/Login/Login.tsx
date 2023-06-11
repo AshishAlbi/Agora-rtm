@@ -25,6 +25,7 @@ function Login(props: LoginProps) {
     }
     navigate("/home");
   };
+
   useEffect(() => {
     localStorage.clear();
   }, []);

@@ -16,7 +16,7 @@ function Routing() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login name={selectedName}/>} />
-        <Route path="home" element={<Home name={userName} />} />
+        <Route path="home" element={<Home name={userName}  />} />
       </Routes>
     </BrowserRouter>
   );
